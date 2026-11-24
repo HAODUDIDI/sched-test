@@ -1,0 +1,16 @@
+name: Fresh Repo Probe
+
+on:
+  schedule:
+    # 新仓库探针：判别调度问题是仓库级还是账号级
+    - cron: "35 16 25 11 *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "fresh repo probe fired at $(date -u +%FT%TZ)"
